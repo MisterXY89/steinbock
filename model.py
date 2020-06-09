@@ -2,6 +2,8 @@
 from datetime import datetime
 from bs4 import BeautifulSoup
 
+WEEKDAY_STRINGS = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
+
 class Document:
 	def __init__(self, file):
 		self.file = file
@@ -35,3 +37,11 @@ class Document:
 			return self.soup
 		self.soup = BeautifulSoup(htmlDoc, "lxml")
 		return self.soup
+
+	def getWeekdayString(self):
+		return WEEKDAY_STRINGS[self.date.weekday()]
+
+	def getMinuteAsHour(self):
+		if self.date.minute == 0:
+			return self.date.minute
+		return 0.5

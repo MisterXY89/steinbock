@@ -15,7 +15,6 @@ class Parser:
 
 	def _collectFileNames(self):
 		""" scan files/ dir for all .html files and return them as list """
-		self.fileDir
 		return glob.glob(f'{self.fileDir}*.html')
 
 	def parse(self):

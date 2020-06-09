@@ -9,4 +9,4 @@ Time slot analysis for steinbock konstanz.
 
 
 ## Results
-![first heatmap](visualizations/first heatmap.png)
+![first heatmap](visualizations/first_heatmap.png)

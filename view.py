@@ -1,4 +1,5 @@
 
+import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -17,5 +18,8 @@ class Visualizer:
 
     def heatmap(self, df):
         # https://seaborn.pydata.org/generated/seaborn.heatmap.html
-        sns.heatmap(df, cmap="YlGnBu")
+        heatmapData = pd.pivot_table(df, values='visitors',
+                     index=['hour'],
+                     columns='weekday')
+        sns.heatmap(heatmapData, cmap="YlGnBu")
         plt.show()

@@ -36,7 +36,7 @@ class Controller:
 		self.docs = self.parser.parse()
 		self.visualizer = Visualizer()
 
-	def _buildDataFrameStandardVis(self, docList):
+	def _buildDataFrame(self, docList):
 		dfList = []
 		for doc in docList:
 			dfList.append(
@@ -50,27 +50,10 @@ class Controller:
 
 		return pd.DataFrame(dfList)
 
-	def _buildDataFrameHeatmap(self, docList):
-		dfList = []
-		for doc in docList:
-			dfList.append(
-		        {
-					'weekday': doc.date.weekday(),
-		            'hour': doc.date.hour+doc.getMinuteAsHour(),
-		            'visitors': doc.visitors
-		            # 'free':  doc.free
-		        }
-		    )
-
-		df = pd.DataFrame(dfList)
-		heatmapData = pd.pivot_table(df, values='visitors',
-                     index=['hour'],
-                     columns='weekday')
-		return heatmapData
 
 	def vis(self):
-		# self.visualizer.vis(self._buildDataFrameStandardVis(self.docs), x="hour", y="visitors", type="reg")
-		self.visualizer.heatmap(self._buildDataFrameHeatmap(self.docs))
+		# self.visualizer.vis(self._buildDataFrame(self.docs), x="hour", y="visitors", type="reg")
+		self.visualizer.heatmap(self._buildDataFrame(self.docs))
 
 
 cont = Controller()

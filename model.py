@@ -1,12 +1,14 @@
 
-import re
+from datetime import datetime
 from bs4 import BeautifulSoup
 
 class Document:
 	def __init__(self, file):
 		self.file = file
+		self.dateString = file.split(".html")[0].split("_")[1]
+		# weekday: Monday = 0, ...
+		self.date = datetime.strptime(self.dateString, '%d.%m.%Y.%H.%M')
 		self.visitors = 0
-		self.date = re.sub("\s+", '', file.split(".html")[0].split("_")[1]);
 		self.soup = None
 		self.html = ""
 		self.text = ""

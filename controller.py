@@ -64,8 +64,9 @@ class Controller:
 
 if __name__ == '__main__':
 	cont = Controller()
-	file, task, type = sys.argv
-	if task == "vis":
-		cont.vis(type)
+	if len(sys.argv) > 1:
+		file, task, type = sys.argv
+		if task == "vis":
+			cont.vis(type)
 	else:
 		cont.vis("heatmap")

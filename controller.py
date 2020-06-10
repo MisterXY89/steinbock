@@ -69,4 +69,5 @@ if __name__ == '__main__':
 		if task == "vis":
 			cont.vis(type)
 	else:
+		print("arg structure: task type")
 		cont.vis("heatmap")

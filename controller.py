@@ -26,6 +26,9 @@ class Parser:
 		docList = []
 		for file in self.files:
 			doc = Document(file)
+			# only use data from where time inside opening hours
+			if (doc.date.hour+doc.getMinuteAsHour()) > 23 or doc.date.hour < 9:
+				continue
 			doc.visitors, doc.free = self._parseVisitors(doc.getSoup(doc.read()))
 			docList.append(doc)
 		return docList

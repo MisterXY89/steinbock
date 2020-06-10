@@ -1,4 +1,5 @@
 
+import sys
 import glob
 import pandas as pd
 import seaborn as sns
@@ -51,10 +52,17 @@ class Controller:
 		return pd.DataFrame(dfList)
 
 
-	def vis(self):
-		# self.visualizer.vis(self._buildDataFrame(self.docs), x="hour", y="visitors", type="reg")
-		self.visualizer.heatmap(self._buildDataFrame(self.docs))
+	def vis(self, type):
+		if type == "heatmap":
+			self.visualizer.heatmap(self._buildDataFrame(self.docs))
+		else:
+			self.visualizer.vis(self._buildDataFrame(self.docs), x="hour", y="visitors", type=type)
 
 
-cont = Controller()
-cont.vis()
+if __name__ == '__main__':
+	cont = Controller()
+	file, task, type = sys.argv
+	if task == "vis":
+		cont.vis(type)
+	else:
+		cont.vis("heatmap")

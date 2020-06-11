@@ -45,8 +45,8 @@ class Controller:
 		for doc in docList:
 			dfList.append(
 		        {
-					'weekday': doc.getWeekdayString(),
-		            'hour': doc.date.hour+doc.getMinuteAsHour(),
+					'weekday': str(doc.date.weekday() + 1) + " - " + doc.getWeekdayString(),
+		            'hour': doc.date.hour + doc.getMinuteAsHour(),
 		            'visitors': doc.visitors,
 		            'free':  doc.free
 		        }

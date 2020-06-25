@@ -1,8 +1,9 @@
-# Steibock Konstanz visitors in Corona times
+# Steinbock Konstanz visitors in Corona times
 Time slot analysis for Steinbock Konstanz // visitor capacity development over the course a week.
 Keep in mind there are factory like the weather that do influence the amount of visitors. 
 
-In `files/` is a collection of the current visitor count for every 30 minutes for currently ~ 2 weeks. There are a few missing times.
+In `files/` is a collection of the current visitor count for every 30 minutes for currently ~ 2 weeks. There are a few missing times. <br>
+Us the parser in controller.py to get a list of all crawled visitor docs. Each entry is an object of the Document class (see model.py).
 
 ## Possible todos: 
  - [ ] Provide web-interface via flask?
